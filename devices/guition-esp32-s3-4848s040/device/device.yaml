@@ -364,7 +364,15 @@ switch:
           notify_internal_relay_changed("relay_3", false);
     optimistic: true
 
-
+binary_sensor:
+  - platform: gpio
+    name: MotionSensor
+    id: binary_sensor_gpio_1
+    pin:
+      number: GPIO2
+      mode:
+        input: true
+        
 # Momentary relay buttons for push-button/dimmer inputs.
 button:
   - platform: template
