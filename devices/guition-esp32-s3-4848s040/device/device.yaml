@@ -336,19 +336,36 @@ switch:
       then:
         - lambda: 'notify_internal_relay_changed("relay_2", false);'
 
-  - platform: gpio
+  # - platform: gpio
+  #   name: Relay 3
+  #   id: relay_3
+  #   icon: mdi:electric-switch
+  #    pin:
+  #      number: GPI28
+  #   restore_mode: RESTORE_DEFAULT_OFF
+  #   on_turn_on:
+  #     then:
+  #       - lambda: 'notify_internal_relay_changed("relay_3", true);'
+  #   on_turn_off:
+  #     then:
+  #       - lambda: 'notify_internal_relay_changed("relay_3", false);'
+
+
+switch:
+  - platform: template
     name: Relay 3
     id: relay_3
     icon: mdi:electric-switch
-     pin:
-       number: GPI28
-    restore_mode: RESTORE_DEFAULT_OFF
-    on_turn_on:
-      then:
-        - lambda: 'notify_internal_relay_changed("relay_3", true);'
-    on_turn_off:
-      then:
-        - lambda: 'notify_internal_relay_changed("relay_3", false);'
+    turn_on_action:
+      - lambda: |-
+          // ваша логика включения
+          notify_internal_relay_changed("relay_3", true);
+    turn_off_action:
+      - lambda: |-
+          // ваша логика выключения
+          notify_internal_relay_changed("relay_3", false);
+    optimistic: true
+
 
 # Momentary relay buttons for push-button/dimmer inputs.
 button:
