@@ -340,8 +340,8 @@ switch:
     name: Relay 3
     id: relay_3
     icon: mdi:electric-switch
-    # pin:
-      # number: GPIO1
+     pin:
+       number: GPI28
     restore_mode: RESTORE_DEFAULT_OFF
     on_turn_on:
       then:
