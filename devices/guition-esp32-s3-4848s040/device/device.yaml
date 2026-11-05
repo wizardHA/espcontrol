@@ -350,8 +350,6 @@ switch:
   #     then:
   #       - lambda: 'notify_internal_relay_changed("relay_3", false);'
 
-
-switch:
   - platform: template
     name: Relay 3
     id: relay_3
