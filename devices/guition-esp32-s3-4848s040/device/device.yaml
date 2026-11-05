@@ -157,16 +157,18 @@ esphome:
                 if (on) id(relay_2).turn_on();
                 else id(relay_2).turn_off();
               },
-              [=]() { id(relay_2_push).execute(); },
-              [=]() -> bool { return id(relay_2).state; });
-            register_internal_relay(
-              "relay_3", "Relay 3",
-              [=](bool on) {
-                if (on) id(relay_3).turn_on();
-                else id(relay_3).turn_off();
-              },
-              [=]() { id(relay_3_push).execute(); },
-              [=]() -> bool { return id(relay_3).state; });
+            #   [=]() { id(relay_2_push).execute(); },
+            #   [=]() -> bool { return id(relay_2).state; });
+            # register_internal_relay(
+            #   "relay_3", "Relay 3",
+            #   [=](bool on) {
+            #     if (on) id(relay_3).turn_on();
+            #     else id(relay_3).turn_off();
+            #   },
+            #   [=]() { id(relay_3_push).execute(); },
+            #   [=]() -> bool { return id(relay_3).state; });
+               [=]() { id(relay_2_push).execute(); },
+               [=]() -> bool { return id(relay_2).state; });            
     - priority: -100
       then:
         - lambda: 'id(screen_rotation_ready) = true;'
