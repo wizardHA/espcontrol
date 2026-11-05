@@ -369,7 +369,7 @@ binary_sensor:
     name: MotionSensor
     id: binary_sensor_gpio_1
     pin:
-      number: GPIO2
+      number: GPIO1
       mode:
         input: true
         
